@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class KafkaMessageConsumer {
 
-    @KafkaListener(topics = "customer")
+
+    @KafkaListener(topics = "customer",groupId = "jt-group-1")
     public void consumer(String message){
         log.info("Consumer consuming the message {} ",message);
+        System.out.println("Consumer consuming the message : " + message);
     }
 
 }
